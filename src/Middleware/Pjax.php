@@ -51,9 +51,10 @@ class Pjax
             return $response;
         };
 
-        (new static())->handle(Request::capture(), $next)->send();
+        swoole_exit((new static())->handle(Request::capture(), $next));
+        // (new static())->handle(Request::capture(), $next)->send();
 
-        exit;
+        // exit;
     }
 
     /**

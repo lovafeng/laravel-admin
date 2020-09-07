@@ -63,8 +63,9 @@ abstract class ExcelExporter extends AbstractExporter implements FromQuery, With
      */
     public function export()
     {
-        $this->download($this->fileName)->prepare(request())->send();
+        // $this->download($this->fileName)->prepare(request())->send();
 
-        exit;
+        swoole_exit($this->download($this->fileName)->prepare(request()));
+        // exit;
     }
 }
